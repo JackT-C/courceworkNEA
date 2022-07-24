@@ -4,21 +4,15 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" fx:controller="com.example.csnea.HomeScreenController" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.HomeScreenController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1101.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Images/New Project.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="700.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../Images/Text.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="98.0" layoutY="287.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="141.0" text="Calorie Diary:" />
-      <Button layoutX="453.0" layoutY="287.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="141.0" text="Exercise Logger" />
-      <Button fx:id="BMI" layoutX="98.0" layoutY="424.0" mnemonicParsing="false" onMouseReleased='#switchtoBMI' prefHeight="63.0" prefWidth="141.0" text="BMI:" />
-      <Button layoutX="453.0" layoutY="424.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="141.0" text="Book personal training:" />
+            <Image url="@../../../Images/New Project (5).png" />
+         </image></ImageView>
+      <Button fx:id="food" layoutX="577.0" layoutY="659.0" mnemonicParsing="false" onAction="#switchtoCalorie" opacity="0.0" prefHeight="378.0" prefWidth="386.0" text="Food" />
+      <Button fx:id="Targets" layoutX="141.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchtoBook" opacity="0.0" prefHeight="378.0" prefWidth="380.0" text="Targets" />
+      <Button fx:id="exercise" layoutX="1059.0" layoutY="223.0" mnemonicParsing="false" onAction="#switchtoExercise" opacity="0.0" prefHeight="384.0" prefWidth="386.0" text="Exercise Logger" />
+      <Button fx:id="BMI" layoutX="1447.0" layoutY="657.0" mnemonicParsing="false" onAction="#switchtoBMI" opacity="0.0" prefHeight="378.0" prefWidth="386.0" text="BMI:" />
    </children>
 </AnchorPane>
