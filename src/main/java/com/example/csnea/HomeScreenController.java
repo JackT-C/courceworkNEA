@@ -20,6 +20,7 @@ public class HomeScreenController extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
     public void switchtoBMI() throws Exception{
         Parent root1 = FXMLLoader.load(getClass().getResource("BMI.fxml"));
@@ -27,6 +28,7 @@ public class HomeScreenController extends Application {
         Stage window = (Stage) BMI.getScene().getWindow();
         window.setScene(scene1);
         window.show();
+        window.setFullScreen(true);
     }
     public void switchtoCalorie() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Calorie.fxml"));
@@ -34,6 +36,7 @@ public class HomeScreenController extends Application {
         Stage window = (Stage) food.getScene().getWindow();
         window.setScene(scene);
         window.show();
+        window.setFullScreen(true);
     }
     public void switchtoBook() throws Exception{
         Parent root2 = FXMLLoader.load(getClass().getResource("Book.fxml"));
@@ -41,6 +44,7 @@ public class HomeScreenController extends Application {
         Stage window = (Stage) Targets.getScene().getWindow();
         window.setScene(scene2);
         window.show();
+        window.setFullScreen(true);
     }
     public void switchtoExercise() throws Exception{
         Parent root3 = FXMLLoader.load(getClass().getResource("Exercise.fxml"));
@@ -48,6 +52,7 @@ public class HomeScreenController extends Application {
         Stage window = (Stage) exercise.getScene().getWindow();
         window.setScene(scene3);
         window.show();
+        window.setFullScreen(true);
     }
 
     public static void main(String[] args) {

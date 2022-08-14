@@ -1,5 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.BMI" />
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.BMI">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/New Project(98).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="584.0" layoutY="486.0" prefHeight="28.0" prefWidth="72.0" text="Height (m)" />
+      <TextField fx:id="textField1" layoutX="656.0" layoutY="488.0" />
+      <TextField fx:id="textField2" layoutX="656.0" layoutY="519.0" />
+      <Label layoutX="584.0" layoutY="523.0" text="Mass (kg)" />
+      <Button layoutX="731.0" layoutY="551.0" mnemonicParsing="false" onAction="#bmicalc" prefHeight="45.0" prefWidth="77.0" text="Calculate">
+         <effect>
+            <Lighting bumpInput="$null" diffuseConstant="2.0" specularConstant="0.0" specularExponent="0.0" surfaceScale="0.0">
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8941176533699036" green="0.13725490868091583" blue="0.13725490868091583" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Label layoutX="1073.0" layoutY="488.0" prefHeight="28.0" prefWidth="72.0" text="Your BMI:" />
+      <Label fx:id="label1" layoutX="1161.0" layoutY="493.0" prefHeight="17.0" prefWidth="110.0" />
+      <Label layoutX="1048.0" layoutY="515.0" text="Your category:" />
+      <Label fx:id="label2" layoutX="1161.0" layoutY="515.0" prefHeight="17.0" prefWidth="149.0" />
+      <Label fx:id="label3" layoutX="766.0" layoutY="273.0" prefHeight="96.0" prefWidth="388.0" />
+      <Button layoutX="1059.0" layoutY="551.0" mnemonicParsing="false" onAction="#reset" prefHeight="45.0" prefWidth="77.0" text="Reset">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="0.0" surfaceScale="0.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8941176533699036" green="0.13725490868091583" blue="0.13725490868091583" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Button>
+      <Button fx:id="HomeScreen" mnemonicParsing="false" onAction="#switchtomainmenu" prefHeight="112.0" prefWidth="203.0" text="Return to main menu">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="0.0" surfaceScale="0.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8941176533699036" green="0.13725490868091583" blue="0.13725490868091583" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
