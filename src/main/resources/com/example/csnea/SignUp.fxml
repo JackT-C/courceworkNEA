@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.SignUpController">
+   <left>
+      <AnchorPane prefHeight="447.0" prefWidth="228.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="-2.0" layoutY="114.0" prefHeight="17.0" prefWidth="236.0" text="Fitness" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Line endX="100.0" layoutX="117.0" layoutY="152.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="161.0" prefHeight="17.0" prefWidth="236.0" text="First" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="21.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Label alignment="CENTER" layoutX="4.0" layoutY="297.0" prefHeight="22.0" prefWidth="228.0" text="If unknown simply type N/A since you can change targets later :)">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="365.0" BorderPane.alignment="CENTER">
+         <children>
+            <PasswordField fx:id="PasswordField" layoutX="176.0" layoutY="69.0" promptText="Password" />
+            <TextField fx:id="UserNameField" layoutX="176.0" layoutY="34.0" promptText="Username" />
+            <TextField fx:id="WeightTextField" layoutX="176.0" layoutY="103.0" promptText="Weight" />
+            <TextField fx:id="HeightTextField" layoutX="176.0" layoutY="141.0" promptText="Height" />
+            <TextField fx:id="WeeklyActiveHoursTF" layoutX="176.0" layoutY="174.0" promptText="Weekly Active Hours" />
+            <TextField fx:id="TargetWeightTF" layoutX="176.0" layoutY="241.0" promptText="Target Weight" />
+            <TextField fx:id="TargetAHTF" layoutX="176.0" layoutY="274.0" promptText="Target Active Hours" />
+            <TextField fx:id="AvCalIntakeTF" layoutX="176.0" layoutY="206.0" promptText="Average Calorie Intake" />
+            <TextField fx:id="TargetAvCalIntakeTF" layoutX="176.0" layoutY="306.0" promptText="Target Calorie Intake" />
+            <Label alignment="CENTER" layoutX="126.0" layoutY="4.0" text="Sign Up Form:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="64.0" layoutY="38.0" text="Username:" />
+            <Label alignment="CENTER" layoutX="66.0" layoutY="73.0" text="Password:" />
+            <Label alignment="CENTER" layoutX="78.0" layoutY="107.0" text="Weight:" />
+            <Label alignment="CENTER" layoutX="81.0" layoutY="145.0" text="Height:" />
+            <Label alignment="CENTER" layoutX="24.0" layoutY="178.0" text="Weeklly Active Hours:" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="210.0" text="Average Calorie Intake (Daily)" />
+            <Label alignment="CENTER" layoutX="42.0" layoutY="245.0" text="Target Weight:" />
+            <Label alignment="CENTER" layoutX="39.0" layoutY="278.0" text="Target Active Hours" />
+            <Label alignment="CENTER" layoutX="39.0" layoutY="310.0" text="Target Calorie Intake" />
+            <Button fx:id="signInButton" layoutX="185.0" layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Submit:" textFill="WHITE" />
+            <Button fx:id="cancelbutton" layoutX="24.0" layoutY="350.0" mnemonicParsing="false" onAction="#cancelbuttonOnAction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Cancel:" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class BMI {
 
@@ -60,5 +61,6 @@ public class BMI {
         Stage window = (Stage) HomeScreen.getScene().getWindow();
         window.setScene(scene1);
         window.show();
+        window.setFullScreen(true);
     }
 }
