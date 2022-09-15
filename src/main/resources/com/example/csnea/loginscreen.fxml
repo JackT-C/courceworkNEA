@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.logincontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.logincontroller">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
          <children>
@@ -77,6 +77,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <Button fx:id="signUpbutton" layoutX="33.0" layoutY="328.0" mnemonicParsing="false" onAction="#signUpbuttonOnAction" prefHeight="39.0" prefWidth="231.0" style="-fx-background-color: #009c8c;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </right>
 </BorderPane>

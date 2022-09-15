@@ -1,14 +1,322 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.csnea.Book"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="1080.0" prefWidth="403.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
+         <children>
+            <Line endX="148.33334350585938" layoutX="201.0" layoutY="540.0" startX="-168.3333282470703" stroke="WHITE" strokeWidth="2.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Label layoutX="127.0" layoutY="422.0" prefHeight="131.0" prefWidth="127.0" text="Fitness" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="28.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Label layoutX="163.0" layoutY="504.0" prefHeight="147.0" prefWidth="56.0" text="First" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="19.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="1080.0" prefWidth="1520.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="209.0" layoutY="174.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="253.0" style="-fx-background-color: #009c8c;" text="Book Session" textFill="WHITE" />
+            <Button layoutX="758.0" layoutY="174.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="253.0" style="-fx-background-color: #009c8c;" text="Change Targets" textFill="WHITE" />
+            <Label layoutX="758.0" layoutY="540.0" prefHeight="164.0" prefWidth="279.0" text="Target Progress:">
+               <font>
+                  <Font name="Verdana Bold" size="28.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Button layoutX="209.0" layoutY="587.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="253.0" style="-fx-background-color: #009c8c;" text="Return to main menu:" textFill="WHITE" />
+            <Label layoutX="758.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="Current BMI:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="currentbmi" layoutX="897.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="inputcurrentbmi">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="758.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="Target BMI:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="targetbmi" layoutX="897.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="inputtargetbmi">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="757.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="Progress %:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="progresspercentbmi" layoutX="896.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="inputbmi%progress">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="1149.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="Current Active Hours (Weekly):">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="1149.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="Target Active Hours (Weekly):">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="1149.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="Progress %:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="currentAOW" layoutX="1403.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="CAOW">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="targetAOW" layoutX="1403.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="TAOW">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="progresspercentAOW" layoutX="1403.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="TAOP">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="745.0" layoutY="751.0" prefHeight="164.0" prefWidth="279.0" text="Current Calorie Intake:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="745.0" layoutY="786.0" prefHeight="164.0" prefWidth="279.0" text="Target Calorie Intake:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="745.0" layoutY="820.0" prefHeight="164.0" prefWidth="279.0" text="Progress %:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="currentcalorieintake" layoutX="915.0" layoutY="751.0" prefHeight="164.0" prefWidth="279.0" text="inputcurrentcalorieintake">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="targetcalorieintake" layoutX="915.0" layoutY="786.0" prefHeight="164.0" prefWidth="279.0" text="inputtargetcalorieintake">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="calorieintakepercentprogress" layoutX="915.0" layoutY="820.0" prefHeight="164.0" prefWidth="279.0" text="inputcalorieintake%progress">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="1149.0" layoutY="751.0" prefHeight="164.0" prefWidth="279.0" text="Total Progress %:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="1149.0" layoutY="796.0" prefHeight="164.0" prefWidth="279.0" text="Estimated time until completion:">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="TotalProgressPercent" layoutX="1403.0" layoutY="751.0" prefHeight="164.0" prefWidth="279.0" text="TPP">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="EstimatedTimeForAllGoals" layoutX="1149.0" layoutY="833.0" prefHeight="164.0" prefWidth="279.0" text="ESTTUC">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
