@@ -30,14 +30,14 @@ public class logincontroller {
     @FXML
     PasswordField passwordTextField;
 
-    public void cancelButtonOnAction(ActionEvent event){
+    public void cancelButtonOnAction(){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
-    public void signUpbuttonOnAction(ActionEvent event) throws Exception{
-        switchtosignup();
+    public void signUpbuttonOnAction(ActionEvent event){
+        DatabaseConnection.changeScene(event, "SignUp.fxml", "switchtosignup", false);
     }
-    public void loginButtonOnAction(ActionEvent event){
+    public void loginButtonOnAction(){
         if (!usernameTextField.getText().isEmpty() && !passwordTextField.getText().isEmpty()){
             logincheck();
         }
@@ -76,12 +76,5 @@ public class logincontroller {
         window.setScene(scene1);
         window.show();
         window.setFullScreen(true);
-    }
-    public void switchtosignup() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-        Scene scene = new Scene(root);
-        Stage window = (Stage) signUpbutton.getScene().getWindow();
-        window.setScene(scene);
-        window.show();
     }
 }

@@ -11,7 +11,7 @@
             <Image url="@../../../Images/New Project (5).png" />
          </image></ImageView>
       <Button fx:id="food" layoutX="579.0" layoutY="655.0" mnemonicParsing="false" onAction="#switchtoCalorie" opacity="0.0" prefHeight="384.0" prefWidth="380.0" text="Food" />
-      <Button fx:id="Targets" layoutX="145.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchtoBook" opacity="0.0" prefHeight="378.0" prefWidth="380.0" text="Targets" />
+      <Button fx:id="Targets" layoutX="145.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchtoTargets" opacity="0.0" prefHeight="378.0" prefWidth="380.0" text="Targets" />
       <Button fx:id="exercise" layoutX="1061.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchtoExercise" opacity="0.0" prefHeight="371.0" prefWidth="386.0" text="Exercise Logger" />
       <Button fx:id="BMI" layoutX="1453.0" layoutY="655.0" mnemonicParsing="false" onAction="#switchtoBMI" opacity="0.0" prefHeight="384.0" prefWidth="380.0" text="BMI:" />
    </children>

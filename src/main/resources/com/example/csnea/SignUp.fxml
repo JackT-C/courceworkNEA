@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.SignUpController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.SignUpController">
    <left>
       <AnchorPane prefHeight="447.0" prefWidth="228.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +35,7 @@
                   <DropShadow />
                </effect>
             </Label>
-            <Label alignment="CENTER" layoutX="4.0" layoutY="297.0" prefHeight="22.0" prefWidth="228.0" text="If unknown simply type N/A since you can change targets later :)">
+            <Label alignment="CENTER" layoutX="4.0" layoutY="297.0" prefHeight="22.0" prefWidth="228.0" text="If unknown then leave black as you can change targets later :)">
                <font>
                   <Font size="8.0" />
                </font>

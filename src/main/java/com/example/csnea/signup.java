@@ -1,22 +1,10 @@
 package com.example.csnea;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.sql.*;
 
 public class signup {
-    @FXML
-    Button cancelbutton;
-    @FXML
-    Button signInButton;
 
 
     public static void signUpUser(ActionEvent event, String Username, String Password, String weight, String height, String activeHours, String avCalIntake,

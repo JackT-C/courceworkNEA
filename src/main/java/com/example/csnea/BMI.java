@@ -1,14 +1,10 @@
 package com.example.csnea;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class BMI {
 
@@ -55,12 +51,7 @@ public class BMI {
         label2.setText("");
         label3.setText("");
     }
-    public void switchtomainmenu() throws Exception{
-        Parent root1 = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
-        Scene scene1 = new Scene(root1);
-        Stage window = (Stage) HomeScreen.getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
-        window.setFullScreen(true);
+    public void switchtomainmenu(ActionEvent event){
+        DatabaseConnection.changeScene(event, "HomeScreen.fxml", "switchtomain", true);
     }
 }

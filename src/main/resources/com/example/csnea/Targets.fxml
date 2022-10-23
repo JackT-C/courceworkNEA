@@ -2,31 +2,24 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.TargetController">
    <left>
-      <AnchorPane prefHeight="1080.0" prefWidth="403.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="1080.0" prefWidth="519.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
          <children>
-            <Line endX="148.33334350585938" layoutX="201.0" layoutY="540.0" startX="-168.3333282470703" stroke="WHITE" strokeWidth="2.0">
+            <Line endX="156.33334350585938" layoutX="250.0" layoutY="516.0" startX="-225.0" stroke="WHITE" strokeWidth="2.0">
                <effect>
                   <DropShadow />
                </effect>
             </Line>
-            <Label layoutX="127.0" layoutY="422.0" prefHeight="131.0" prefWidth="127.0" text="Fitness" textFill="WHITE">
+            <Label layoutX="167.0" layoutY="540.0" prefHeight="52.0" prefWidth="97.0" text="First" textFill="WHITE">
                <font>
-                  <Font name="Verdana Bold" size="28.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Label>
-            <Label layoutX="163.0" layoutY="504.0" prefHeight="147.0" prefWidth="56.0" text="First" textFill="WHITE">
-               <font>
-                  <Font name="Verdana" size="19.0" />
+                  <Font name="Verdana" size="39.0" />
                </font>
                <effect>
                   <DropShadow />
@@ -35,10 +28,15 @@
          </children></AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="1080.0" prefWidth="1520.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="946.0" prefWidth="1361.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="209.0" layoutY="174.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="253.0" style="-fx-background-color: #009c8c;" text="Book Session" textFill="WHITE" />
-            <Button layoutX="758.0" layoutY="174.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="253.0" style="-fx-background-color: #009c8c;" text="Change Targets" textFill="WHITE" />
+            <ImageView fitHeight="357.0" fitWidth="306.0" layoutX="258.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/New%20Project%20(3).png" />
+               </image>
+            </ImageView>
+            <Button fx:id="BookSessionButton" layoutX="340.0" layoutY="130.0" mnemonicParsing="false" onAction="#switchtobooking" prefHeight="51.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Book Session" textFill="WHITE" />
+            <Button fx:id="ChangeTargetsButton" layoutX="1338.0" layoutY="607.0" mnemonicParsing="false" onAction="#changetargets" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: #009c8c;" text="Change Targets" textFill="WHITE" />
             <Label layoutX="758.0" layoutY="540.0" prefHeight="164.0" prefWidth="279.0" text="Target Progress:">
                <font>
                   <Font name="Verdana Bold" size="28.0" />
@@ -51,7 +49,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Button layoutX="209.0" layoutY="587.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="253.0" style="-fx-background-color: #009c8c;" text="Return to main menu:" textFill="WHITE" />
+            <Button fx:id="ReturnToMainMenuButton" layoutX="1384.0" mnemonicParsing="false" onAction="#switchtomainmenu" prefHeight="114.0" prefWidth="297.0" style="-fx-background-color: #009c8c;" text="Return to main menu:" textFill="WHITE" />
             <Label layoutX="758.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="Current BMI:">
                <font>
                   <Font name="Verdana" size="14.0" />
@@ -76,7 +74,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label layoutX="758.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="Target BMI:">
+            <Label layoutX="758.0" layoutY="692.0" prefHeight="24.0" prefWidth="89.0" text="Target BMI:">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -88,7 +86,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="targetbmi" layoutX="897.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="inputtargetbmi">
+            <Label fx:id="targetbmi" layoutX="898.0" layoutY="690.0" prefHeight="28.0" prefWidth="113.0" text="inputtargetbmi">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -100,7 +98,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label layoutX="757.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="Progress %:">
+            <Label layoutX="758.0" layoutY="728.0" prefHeight="20.0" prefWidth="92.0" text="Progress %:">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -112,7 +110,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="progresspercentbmi" layoutX="896.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="inputbmi%progress">
+            <Label fx:id="progresspercentbmi" layoutX="897.0" layoutY="725.0" prefHeight="25.0" prefWidth="149.0" text="inputbmi%progress">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -124,7 +122,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label layoutX="1149.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="Current Active Hours (Weekly):">
+            <Label layoutX="1149.0" layoutY="658.0" prefHeight="22.0" prefWidth="233.0" text="Current Active Hours (Weekly):">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -136,7 +134,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label layoutX="1149.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="Target Active Hours (Weekly):">
+            <Label layoutX="1149.0" layoutY="694.0" prefHeight="21.0" prefWidth="223.0" text="Target Active Hours (Weekly):">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -148,7 +146,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label layoutX="1149.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="Progress %:">
+            <Label layoutX="1146.0" layoutY="726.0" prefHeight="23.0" prefWidth="97.0" text="Progress %:">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -160,7 +158,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="currentAOW" layoutX="1403.0" layoutY="587.0" prefHeight="164.0" prefWidth="279.0" text="CAOW">
+            <Label fx:id="currentAOW" layoutX="1404.0" layoutY="660.0" prefHeight="18.0" prefWidth="49.0" text="CAOW">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -172,7 +170,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="targetAOW" layoutX="1403.0" layoutY="622.0" prefHeight="164.0" prefWidth="279.0" text="TAOW">
+            <Label fx:id="targetAOW" layoutX="1404.0" layoutY="695.0" prefHeight="19.0" prefWidth="48.0" text="TAOW">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -184,7 +182,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="progresspercentAOW" layoutX="1403.0" layoutY="656.0" prefHeight="164.0" prefWidth="279.0" text="TAOP">
+            <Label fx:id="progresspercentAOW" layoutX="1408.0" layoutY="730.0" prefHeight="18.0" prefWidth="42.0" text="TAOP">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -292,7 +290,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="TotalProgressPercent" layoutX="1403.0" layoutY="751.0" prefHeight="164.0" prefWidth="279.0" text="TPP">
+            <Label fx:id="TotalProgressPercent" layoutX="1412.0" layoutY="824.0" prefHeight="18.0" prefWidth="33.0" text="TPP">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -304,7 +302,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label fx:id="EstimatedTimeForAllGoals" layoutX="1149.0" layoutY="833.0" prefHeight="164.0" prefWidth="279.0" text="ESTTUC">
+            <Label fx:id="EstimatedTimeForAllGoals" layoutX="1395.0" layoutY="866.0" prefHeight="25.0" prefWidth="66.0" text="ESTTUC">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -314,6 +312,14 @@
                         <Color red="1.0" green="1.0" blue="1.0" />
                      </color>
                   </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="-164.0" layoutY="381.0" prefHeight="96.0" prefWidth="309.0" text="Fitness" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="71.0" />
+               </font>
+               <effect>
+                  <DropShadow />
                </effect>
             </Label>
          </children>
