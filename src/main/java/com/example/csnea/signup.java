@@ -7,15 +7,15 @@ import java.sql.*;
 public class signup {
 
 
-    public static void signUpUser(ActionEvent event, String Username, String Password, String weight, String height, String activeHours, String avCalIntake,
-                                  String targetWeight, String targetactiveHours, String targetacCalIntake){
+    public static void signUpUser(ActionEvent event, String Username, String Password, String Weight, String Height, String ActiveHours, String AverageCalIntake,
+                                  String targetweight, String targetactivehours, String targetavcalintake){
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psCheckIfUserExists = null;
         ResultSet resultSet = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/schema", "root", "Battlefront2");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
             psCheckIfUserExists = connection.prepareStatement("SELECT * FROM useraccounts WHERE Username = ?");
             psCheckIfUserExists.setString(1, Username);
             resultSet = psCheckIfUserExists.executeQuery();
@@ -26,19 +26,20 @@ public class signup {
                 alert.show();
             }
             else {
-                psInsert = connection.prepareStatement("INSERT INTO useraccounts (Username,Password,weight,height,activeHours,avCalIntake) VALUES (?, ?, ?, ?, ?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO useraccounts (Username,Password,Weight,Height,ActiveHours,AverageCalIntake) VALUES (?, ?, ?, ?, ?, ?)");
                 psInsert.setString(1, Username);
                 psInsert.setString(2, Password);
-                psInsert.setFloat(3, Float.parseFloat(weight));
-                psInsert.setFloat(4, Float.parseFloat(height));
-                psInsert.setFloat(5, Float.parseFloat(activeHours));
-                psInsert.setFloat(6, Float.parseFloat(avCalIntake));
+                psInsert.setFloat(3, Float.parseFloat(Weight));
+                psInsert.setFloat(4, Float.parseFloat(Height));
+                psInsert.setFloat(5, Float.parseFloat(ActiveHours));
+                psInsert.setFloat(6, Float.parseFloat(AverageCalIntake));
                 psInsert.executeUpdate();
 
-                psInsert = connection.prepareStatement("INSERT INTO usertargets (targetWeight, targetactiveHours, targetacCalIntake) VALUES (?, ?, ?)");
-                psInsert.setFloat(1, Float.parseFloat(targetWeight));
-                psInsert.setFloat(2, Float.parseFloat(targetactiveHours));
-                psInsert.setFloat(3, Float.parseFloat(targetacCalIntake));
+                psInsert = connection.prepareStatement("INSERT INTO usertargets (Username,targetweight,targetactivehours,targetavcalintake) VALUES (?, ?, ?, ?)");
+                psInsert.setString(1, Username);
+                psInsert.setFloat(2, Float.parseFloat(targetweight));
+                psInsert.setFloat(3, Float.parseFloat(targetactivehours));
+                psInsert.setFloat(4, Float.parseFloat(targetavcalintake));
                 psInsert.executeUpdate();
 
             }

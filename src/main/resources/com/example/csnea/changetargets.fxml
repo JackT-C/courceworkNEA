@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.csnea.Changetargets"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="447.0" prefWidth="228.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="400.0" prefWidth="236.0" style="-fx-background-color: #009c8c;">
+               <children>
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="127.0" prefHeight="17.0" prefWidth="236.0" text="Fitness" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+                  <Line endX="100.0" layoutX="118.0" layoutY="165.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Line>
+                  <Label alignment="CENTER" layoutY="174.0" prefHeight="17.0" prefWidth="236.0" text="First" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana" size="21.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="365.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="400.0" prefWidth="365.0">
+               <children>
+                  <PasswordField fx:id="PasswordField" layoutX="176.0" layoutY="69.0" promptText="Password" />
+                  <TextField fx:id="UserNameField" layoutX="176.0" layoutY="34.0" promptText="Username" />
+                  <TextField fx:id="TargetWeightTF" layoutX="176.0" layoutY="112.0" promptText="New Target Weight" />
+                  <TextField fx:id="TargetAHTF" layoutX="176.0" layoutY="154.0" promptText="New Target Active Hours" />
+                  <TextField fx:id="TargetAvCalIntakeTF" layoutX="176.0" layoutY="196.0" promptText="New Target Calorie Intake" />
+                  <Label alignment="CENTER" layoutX="126.0" layoutY="4.0" text="Change Targets Form:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="64.0" layoutY="38.0" text="Username:" />
+                  <Label alignment="CENTER" layoutX="66.0" layoutY="73.0" text="Password:" />
+                  <Label alignment="CENTER" layoutX="38.0" layoutY="116.0" text="New Target Weight:" />
+                  <Label alignment="CENTER" layoutX="28.0" layoutY="158.0" text="New Target Active Hours:" />
+                  <Label alignment="CENTER" layoutX="36.0" layoutY="200.0" text="Target Calorie Intake" />
+                  <Button fx:id="submitchangesbutton" layoutX="181.0" layoutY="245.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Submit:" textFill="WHITE" />
+                  <Button fx:id="cancelbutton" layoutX="21.0" layoutY="245.0" mnemonicParsing="false" onAction="#cancelbuttonOnAction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Cancel:" textFill="WHITE" />
+                  <Label layoutX="29.0" layoutY="308.0" text="Please leave any targets you dont wish to change blank" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

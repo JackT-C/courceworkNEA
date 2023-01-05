@@ -37,9 +37,7 @@ public class SignUpController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         signInButton.setOnAction(event -> {
 
-            if (!PasswordField.getText().trim().isEmpty() && !UserNameField.getText().trim().isEmpty() && !WeightTextField.getText().trim().isEmpty()
-            && !HeightTextField.getText().trim().isEmpty() && !WeeklyActiveHoursTF.getText().trim().isEmpty() && !AvCalIntakeTF.getText().trim().isEmpty()
-            && !TargetWeightTF.getText().trim().isEmpty() && !TargetAHTF.getText().trim().isEmpty() && !TargetAvCalIntakeTF.getText().trim().isEmpty()){
+            if (!PasswordField.getText().trim().isEmpty() && !UserNameField.getText().trim().isEmpty()){
 
 
                 signup.signUpUser(event, UserNameField.getText(), PasswordField.getText(), WeightTextField.getText(), HeightTextField.getText(),
@@ -48,9 +46,9 @@ public class SignUpController implements Initializable {
                 DatabaseConnection.changeScene(event, "loginscreen.fxml", "backtologin", false);
             }
             else {
-                System.out.println("Please fill in all information");
+                System.out.println("Please fill in username and password information");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Please fill in all information to sign up");
+                alert.setContentText("Please fill in username and password information to sign up");
                 alert.show();
             }
         });

@@ -13,10 +13,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.30.jar!/" />
+          <root url="file://C:/Program Files (x86)/MySQL/Connector J 8.0" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://C:/Program Files (x86)/MySQL/Connector J 8.0" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:11.0.2" level="project" />
