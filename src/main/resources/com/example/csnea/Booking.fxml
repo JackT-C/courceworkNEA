@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.csnea.Booking"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.Book">
+    <HBox>
+        <TextField fx:id="nameInput" promptText="Name" />
+        <TextField fx:id="exerciseTypeInput" promptText="Exercise Type" />
+        <TextField fx:id="dateInput" promptText="Date (YYYY-MM-DD)" />
+        <TextField fx:id="timeInput" promptText="Time (HH:MM)" />
+        <Button fx:id="addButton" onAction="#addBooking" prefHeight="25.0" prefWidth="43.0" text="Add" />
+    </HBox>
+    <TableView fx:id="table">
+        <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="147.99999487400055" text="Name" />
+            <TableColumn fx:id="exerciseTypeColumn" prefWidth="147" text="Exercise Type" />
+            <TableColumn fx:id="dateColumn" prefWidth="148.6667022705078" text="Date" />
+            <TableColumn fx:id="timeColumn" prefWidth="187.33331298828125" text="Time" />
+        </columns>
+    </TableView>
+   <Button fx:id="exitButton" onAction="#exitbuttononclick" prefHeight="25.0" prefWidth="639.0" text="Exit:" />
+</VBox>

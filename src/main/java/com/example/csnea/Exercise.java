@@ -1,5 +1,6 @@
 package com.example.csnea;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -69,6 +70,5 @@ public class Exercise {
             e.printStackTrace();
         }
     }
-
 
 }

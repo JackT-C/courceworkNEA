@@ -19,6 +19,6 @@ public class TargetController {
     }
 
     public void switchtobooking(ActionEvent event){
-        DatabaseConnection.changeScene(event, "Booking.fxml", "switchtobooking", true);
+        DatabaseConnection.changeScene(event, "Booking.fxml", "switchtobooking", false);
     }
 }

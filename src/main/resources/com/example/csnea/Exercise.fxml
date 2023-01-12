@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.Exercise">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1749.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.Exercise">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -85,10 +85,12 @@
             <TextField fx:id="caloriesburnttextfield" layoutX="1046.0" layoutY="208.0" promptText="number of cals burnt" />
             <Label layoutX="937.0" layoutY="252.0" prefHeight="17.0" prefWidth="98.0" text="Hours:" />
             <TextField fx:id="hoursexercisingtf" layoutX="1046.0" layoutY="249.0" promptText="hours spent exercising" />
-            <TableView fx:id="exercisetable" layoutX="54.0" layoutY="169.0" prefHeight="609.0" prefWidth="501.0">
+            <TableView fx:id="exercisetable" layoutX="87.0" layoutY="179.0" prefHeight="609.0" prefWidth="501.0">
               <columns>
-                <TableColumn prefWidth="103.33331680297852" text="Type of Exercise" />
-                <TableColumn prefWidth="84.33331298828125" text="Cals Burnt" />
+                <TableColumn prefWidth="103.33331680297852" text="Username:" />
+                <TableColumn prefWidth="121.66667175292969" text="Calories Burnt:" />
+                 <TableColumn prefWidth="149.66668701171875" text="Type of Exercise:" />
+                 <TableColumn prefWidth="126.99996948242188" text="Hours Spent:" />
               </columns>
             </TableView>
             <Button fx:id="returntogoalsbutton" layoutX="1104.0" layoutY="585.0" mnemonicParsing="false" onAction="#switchtotargets" prefHeight="62.0" prefWidth="129.0" style="-fx-background-color: #009c8c;" text="Targets:" textFill="WHITE" />
