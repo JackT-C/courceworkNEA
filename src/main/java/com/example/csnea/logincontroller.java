@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class logincontroller {
+    public static String currentuser;
     @FXML
     Button cancelButton;
     @FXML
@@ -59,6 +61,7 @@ public class logincontroller {
             while (queryResult.next()){
                 if (queryResult.getInt(1) == 1){
                     loginMessageLabel.setText("Details correct, Welcome");
+                    currentuser = usernameTextField.getText();
                     switchtomainmenu();
                 }
                 else {
@@ -74,7 +77,8 @@ public class logincontroller {
         Scene scene1 = new Scene(root1);
         Stage window = (Stage) loginButton.getScene().getWindow();
         window.setScene(scene1);
-        window.show();
+        window.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         window.setFullScreen(true);
+        window.show();
     }
 }

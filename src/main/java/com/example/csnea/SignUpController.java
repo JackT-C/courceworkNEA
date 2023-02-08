@@ -1,5 +1,7 @@
 package com.example.csnea;
 
+import com.example.csnea.DatabaseConnection;
+import com.example.csnea.signup;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,11 +33,32 @@ public class SignUpController implements Initializable {
     private TextField TargetAvCalIntakeTF;
     @FXML
     private Button signInButton;
-    @FXML
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         signInButton.setOnAction(event -> {
+            if (WeightTextField.getText().trim().isEmpty()) {
+                WeightTextField.setText("0");
+            }
+            if (HeightTextField.getText().trim().isEmpty()) {
+                HeightTextField.setText("0");
+            }
+            if (WeeklyActiveHoursTF.getText().trim().isEmpty()) {
+                WeeklyActiveHoursTF.setText("0");
+            }
+            if (AvCalIntakeTF.getText().trim().isEmpty()) {
+                AvCalIntakeTF.setText("0");
+            }
+            if (TargetWeightTF.getText().trim().isEmpty()) {
+                TargetWeightTF.setText("0");
+            }
+            if (TargetAHTF.getText().trim().isEmpty()) {
+                TargetAHTF.setText("0");
+            }
+            if (TargetAvCalIntakeTF.getText().trim().isEmpty()) {
+                TargetAvCalIntakeTF.setText("0");
+            }
+
 
             if (!PasswordField.getText().trim().isEmpty() && !UserNameField.getText().trim().isEmpty()){
 

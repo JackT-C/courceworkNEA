@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Date;
 
+import com.example.csnea.BookingController;
+import com.example.csnea.DatabaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,7 +50,7 @@ public class Book {
     private final String selectAllBookingSQL = "SELECT * FROM bookings";
 
     private final ObservableList<BookingController> bookings = FXCollections.observableArrayList();
-    private final Set<BookingController> exerciseSet = new HashSet<BookingController>();
+    private final Set<BookingController> exerciseSet = new HashSet<>();
 
     public void initialize() {
         try {

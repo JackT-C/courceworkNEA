@@ -3,7 +3,6 @@ import java.sql.Date;
 import java.sql.Time;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableValue;
 
 public class BookingController {
     private final SimpleStringProperty name;

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1749.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.Calorie">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1749.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.Calorie">
    <left>
       <AnchorPane prefHeight="1080.0" prefWidth="485.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
          <children>
@@ -54,14 +59,14 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Button fx:id="AddExerciseButton" layoutX="334.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #009c8c;" text="Add:" textFill="WHITE" />
+            <Button fx:id="AddFoodButton" layoutX="334.0" layoutY="352.0" mnemonicParsing="false"   prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #009c8c;" text="Add:" textFill="WHITE" />
             <Label layoutX="132.0" layoutY="188.0" prefHeight="17.0" prefWidth="98.0" text="Name of food:" />
             <Label layoutX="132.0" layoutY="269.0" prefHeight="17.0" prefWidth="98.0" text="fat % (if known)" />
-            <TextField layoutX="259.0" layoutY="225.0" promptText="calories (kcal)" />
+            <TextField fx:id="numberofcalstf" layoutX="259.0" layoutY="225.0" promptText="calories (kcal)" />
             <Label layoutX="132.0" layoutY="229.0" prefHeight="17.0" prefWidth="114.0" text="Number of calories:" />
-            <TextField layoutX="259.0" layoutY="265.0" promptText="\% of fat" />
-            <TextField layoutX="259.0" layoutY="184.0" promptText="calories (kcal)" />
-            <TextField layoutX="280.0" layoutY="307.0" prefHeight="25.0" prefWidth="128.0" promptText="Protein gs" />
+            <TextField fx:id="fatpercentagetf" layoutX="259.0" layoutY="265.0" promptText="\% of fat" />
+            <TextField fx:id="nameoffoodtf" layoutX="259.0" layoutY="184.0" promptText="food name:" />
+            <TextField fx:id="proteingramstf" layoutX="280.0" layoutY="307.0" prefHeight="25.0" prefWidth="128.0" promptText="Protein gs" />
             <Label layoutX="132.0" layoutY="311.0" prefHeight="17.0" prefWidth="150.0" text="grams of protein (if known)" />
             <Button fx:id="returntomainmenu" layoutX="334.0" layoutY="874.0" mnemonicParsing="false" onAction="#returntomainmenu" prefHeight="62.0" prefWidth="117.0" style="-fx-background-color: #009c8c;" text="Main Menu:" textFill="WHITE" />
             <Label layoutX="117.0" layoutY="803.0" prefHeight="45.0" prefWidth="357.0" text="Return to main menu:">
@@ -89,19 +94,20 @@
                </effect>
             </Label>
             <Button fx:id="returntotargets" layoutX="334.0" layoutY="684.0" mnemonicParsing="false" onAction="#returntotargets" prefHeight="62.0" prefWidth="117.0" style="-fx-background-color: #009c8c;" text="Targets:" textFill="WHITE" />
+            <Button fx:id="resetbutton" layoutX="132.0" layoutY="352.0" mnemonicParsing="false" onAction="#clearitemsfromtable" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #009c8c;" text="Reset:" textFill="WHITE" />
          </children>
       </AnchorPane>
    </right>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="exercisetable" layoutX="105.0" layoutY="205.0" prefHeight="609.0" prefWidth="501.0">
+            <TableView fx:id="foodtable" layoutX="105.0" layoutY="205.0" prefHeight="609.0" prefWidth="501.0">
                <columns>
-                  <TableColumn prefWidth="103.33331680297852" text="Username:" />
-                  <TableColumn prefWidth="101.99998474121094" text="Name of food:" />
-                  <TableColumn prefWidth="130.0" text="Number of Calories:" />
-                  <TableColumn prefWidth="70.0" text="Fat %:" />
-                  <TableColumn prefWidth="100" text="Protein gs:" />
+                  <TableColumn fx:id="UsernameColumn" prefWidth="103.33331680297852" text="Username:" />
+                  <TableColumn fx:id="Nameoffoodcolumn" prefWidth="101.99998474121094" text="Name of food:" />
+                  <TableColumn fx:id="Numberofcalscolumn" prefWidth="130.0" text="Number of Calories:" />
+                  <TableColumn fx:id="Fatpercentagecolumn" prefWidth="70.0" text="Fat %:" />
+                  <TableColumn fx:id="Proteinpercentagecolumn" prefWidth="100" text="Protein gs:" />
                </columns>
             </TableView>
             <Label layoutX="114.0" layoutY="91.0" prefHeight="45.0" prefWidth="318.0" text="Food from today:">
@@ -116,6 +122,7 @@
                   </DropShadow>
                </effect>
             </Label>
+            <Button fx:id="refreshbutton" layoutX="538.0" layoutY="97.0" mnemonicParsing="false" onAction="#displayitemstotable" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #009c8c;" text="Refresh:" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>

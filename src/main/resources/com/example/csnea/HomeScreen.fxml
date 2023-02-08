@@ -14,5 +14,6 @@
       <Button fx:id="Targets" layoutX="113.0" layoutY="187.0" mnemonicParsing="false" onAction="#switchtoTargets" opacity="0.0" prefHeight="378.0" prefWidth="380.0" text="Targets" />
       <Button fx:id="exercise" layoutX="923.0" layoutY="190.0" mnemonicParsing="false" onAction="#switchtoExercise" opacity="0.0" prefHeight="371.0" prefWidth="386.0" text="Exercise Logger" />
       <Button fx:id="BMI" layoutX="1272.0" layoutY="573.0" mnemonicParsing="false" onAction="#switchtoBMI" opacity="0.0" prefHeight="384.0" prefWidth="380.0" text="BMI:" />
+      <Button fx:id="exitbutton" layoutX="1353.0" layoutY="48.0" mnemonicParsing="false" onAction="#exit" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: #5414dc;" text="EXIT:" textFill="WHITE" />
    </children>
 </AnchorPane>

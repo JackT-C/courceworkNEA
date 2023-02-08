@@ -1,49 +1,46 @@
 package com.example.csnea;
-
-import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 
-public class Exercise {
+public class Exercise implements Initializable {
     @FXML
-    private ChoiceBox exercisedropdown;
+    private TextField typeofexercisetf;
     @FXML
     private TextField caloriesburnttextfield;
     @FXML
     private TextField hoursexercisingtf;
     @FXML
     private Button AddExerciseButton;
+    @FXML
+    private TableView<ExerciseController> exercisetable;
+    @FXML
+    private TableColumn<ExerciseController, String> Usernamecolumn;
+    @FXML
+    private TableColumn<ExerciseController, String> Typeofexercisecolumn;
+    @FXML
+    private TableColumn<ExerciseController, Float> Caloriesburntcolumn;
+    @FXML
+    private TableColumn<ExerciseController, Float> Hoursspentcolumn;
 
-    public void switchtotargets(ActionEvent event){
-        DatabaseConnection.changeScene(event, "Targets.fxml", "switchtotargets", true);
-    }
-    public void switchtomainmenu(ActionEvent event){
-        DatabaseConnection.changeScene(event, "HomeScreen.fxml", "switchtomainmenu", true);
-    }
-    public void additemstochoicebox() {
-        exercisedropdown.getItems().addAll("Running", "Cycling", "Swimming", "Gym push", "Gym pull", "Gym legs", "Football",
-                "Cricket", "Hockey", "Tennis", "Volleyball", "Table Tennis", "Basketball", "Baseball", "Golf", "Rugby",
-                "Badminton", "Boxing/Fighting", "Other");
-    }
+    private ObservableList<ExerciseController> userexercises = FXCollections.observableArrayList();
+
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AddExerciseButton.setOnAction(event -> {
-            System.out.println(exercisedropdown.getValue().toString());
-            if (!hoursexercisingtf.getText().trim().isEmpty() && !caloriesburnttextfield.getText().trim().isEmpty() && !exercisedropdown.getValue().toString().trim().isEmpty()){
+            if (!hoursexercisingtf.getText().trim().isEmpty() && !caloriesburnttextfield.getText().trim().isEmpty() && !typeofexercisetf.getText().trim().isEmpty()){
 
 
-                addexercisetodb(event, exercisedropdown.getValue().toString(), caloriesburnttextfield.getText().trim(), hoursexercisingtf.getText().trim());
+                addexercisetodb(event, typeofexercisetf.getText().trim(), caloriesburnttextfield.getText().trim(), hoursexercisingtf.getText().trim());
 
             }
             else {
@@ -54,21 +51,72 @@ public class Exercise {
             }
         });}
 
+    public void switchtotargets(ActionEvent event){
+        DatabaseConnection.changeScene(event, "Targets.fxml", "switchtotargets", true);
+    }
+    public void switchtomainmenu(ActionEvent event){
+        DatabaseConnection.changeScene(event, "HomeScreen.fxml", "switchtomainmenu", true);
+    }
+
 
     public void addexercisetodb(ActionEvent event, String typeofexercise, String caloriesburnt, String hoursspent){
-        Connection connection = null;
-        PreparedStatement psInsert = null;
+        Connection connection;
+        PreparedStatement psInsert;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
-            psInsert = connection.prepareStatement("INSERT INTO userexercise (typeofexercise,caloriesburnt,hoursspent) VALUES (?,?,?)");
-            psInsert.setString(1, typeofexercise);
-            psInsert.setFloat(2, Float.parseFloat(caloriesburnt));
-            psInsert.setFloat(3, Float.parseFloat(hoursspent));
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
+            psInsert = connection.prepareStatement("INSERT INTO userexercise (Username,typeofexercise,caloriesburnt,hoursspent) VALUES (?,?,?,?)");
+            psInsert.setString(1, logincontroller.currentuser);
+            psInsert.setString(2, typeofexercise);
+            psInsert.setFloat(3, Float.parseFloat(caloriesburnt));
+            psInsert.setFloat(4, Float.parseFloat(hoursspent));
+            psInsert.executeUpdate();
+            displaytableitems();
 
         }
         catch (SQLException e){
             e.printStackTrace();
         }
     }
+    public void displaytableitems(){
+        Connection connection;
+        PreparedStatement psSelect;
+        ResultSet resultSet;
+        Usernamecolumn.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        Typeofexercisecolumn.setCellValueFactory(new PropertyValueFactory<>("typeofexercise"));
+        Caloriesburntcolumn.setCellValueFactory(new PropertyValueFactory<>("caloriesburnt"));
+        Hoursspentcolumn.setCellValueFactory(new PropertyValueFactory<>("hoursspent"));
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst","root", "root");
+            psSelect = connection.prepareStatement("SELECT * FROM userexercise");
+            resultSet = psSelect.executeQuery();
+            userexercises.clear();
+            while (resultSet.next()){
+                userexercises.add(new ExerciseController(resultSet.getString("Username")
+                        , resultSet.getString("typeofexercise")
+                        , resultSet.getFloat("caloriesburnt")
+                        , resultSet.getFloat("hoursspent")));
+                exercisetable.setItems(userexercises);
+            }
+
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void cleartableitems(){
+        userexercises.clear();
+        exercisetable.setItems(FXCollections.observableArrayList());
+        Connection connection;
+        PreparedStatement psDelete;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
+            psDelete = connection.prepareStatement("DELETE FROM userexercise");
+            psDelete.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
 }
