@@ -1,7 +1,5 @@
 package com.example.csnea;
 
-import com.example.csnea.DatabaseConnection;
-import com.example.csnea.signup;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,18 +35,8 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         signInButton.setOnAction(event -> {
-            if (WeightTextField.getText().trim().isEmpty()) {
-                WeightTextField.setText("0");
-            }
-            if (HeightTextField.getText().trim().isEmpty()) {
-                HeightTextField.setText("0");
-            }
-            if (WeeklyActiveHoursTF.getText().trim().isEmpty()) {
-                WeeklyActiveHoursTF.setText("0");
-            }
-            if (AvCalIntakeTF.getText().trim().isEmpty()) {
-                AvCalIntakeTF.setText("0");
-            }
+
+            //if the target text fields are empty then set to 0, so the other values can be added to database
             if (TargetWeightTF.getText().trim().isEmpty()) {
                 TargetWeightTF.setText("0");
             }
@@ -59,25 +47,27 @@ public class SignUpController implements Initializable {
                 TargetAvCalIntakeTF.setText("0");
             }
 
-
-            if (!PasswordField.getText().trim().isEmpty() && !UserNameField.getText().trim().isEmpty()){
+            //only if the required fields are filled in can the values be added to the database
+            if (!PasswordField.getText().trim().isEmpty() && !UserNameField.getText().trim().isEmpty() && !WeightTextField.getText().trim().isEmpty()
+            && !HeightTextField.getText().trim().isEmpty() && !WeeklyActiveHoursTF.getText().trim().isEmpty() && AvCalIntakeTF.getText().trim().isEmpty()){
 
 
                 signup.signUpUser(event, UserNameField.getText(), PasswordField.getText(), WeightTextField.getText(), HeightTextField.getText(),
                         WeeklyActiveHoursTF.getText(), AvCalIntakeTF.getText(), TargetWeightTF.getText(), TargetAHTF.getText(), TargetAvCalIntakeTF.getText());
-
-                DatabaseConnection.changeScene(event, "loginscreen.fxml", "backtologin", false);
+                //switch to the login screen
+                SwitchScenes.changeScene(event, "loginscreen.fxml", "backtologin", false);
             }
+            //if the required fields are empty then show an error and get the user to enter details
             else {
-                System.out.println("Please fill in username and password information");
+                System.out.println("Please fill in required information (targets are still optional)");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Please fill in username and password information to sign up");
+                alert.setContentText("Please fill in required information (targets are still optional)");
                 alert.show();
             }
         });
     }
-
+    //return to the loginscreen if user presses cancel button
     public void cancelbuttonOnAction(ActionEvent event){
-        DatabaseConnection.changeScene(event, "loginscreen.fxml", "backtologin", false);
+        SwitchScenes.changeScene(event, "loginscreen.fxml", "backtologin", false);
     }
 }

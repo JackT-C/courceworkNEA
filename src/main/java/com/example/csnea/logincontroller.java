@@ -12,8 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -32,13 +32,16 @@ public class logincontroller {
     @FXML
     PasswordField passwordTextField;
 
+    //closes the application if the user cancels login
     public void cancelButtonOnAction(){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
+    //switch to the signup scene on button press
     public void signUpbuttonOnAction(ActionEvent event){
-        DatabaseConnection.changeScene(event, "SignUp.fxml", "switchtosignup", false);
+        SwitchScenes.changeScene(event, "SignUp.fxml", "switchtosignup", false);
     }
+    //checks if the fields for logging in are empty or not
     public void loginButtonOnAction(){
         if (!usernameTextField.getText().isEmpty() && !passwordTextField.getText().isEmpty()){
             logincheck();
@@ -49,18 +52,15 @@ public class logincontroller {
 
     }
     public void logincheck(){
-        DatabaseConnection connection = new DatabaseConnection();
-        Connection connection1 = connection.getConnection();
-
-        String loginCheck = "SELECT count(1) FROM useraccounts WHERE Username = '" + usernameTextField.getText() + "' AND Password = '" + passwordTextField.getText() + "'";
-
         try {
-            Statement statement = connection1.createStatement();
-            ResultSet queryResult = statement.executeQuery(loginCheck);
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
+            Statement statement = connection.createStatement();
+            //checks the database for the username and password
+            ResultSet queryResult = statement.executeQuery("SELECT count(1) FROM useraccounts WHERE Username = '" + usernameTextField.getText() + "' AND Password = '" + passwordTextField.getText() + "'");
 
             while (queryResult.next()){
+                //if the username and password match then set the current user to the one logged in and switch to main menu
                 if (queryResult.getInt(1) == 1){
-                    loginMessageLabel.setText("Details correct, Welcome");
                     currentuser = usernameTextField.getText();
                     switchtomainmenu();
                 }

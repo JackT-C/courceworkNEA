@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class loginscreen extends Application {
+    //allows the loginscreen to display on start
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(loginscreen.class.getResource("loginscreen.fxml"));

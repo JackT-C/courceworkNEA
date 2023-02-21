@@ -1,4 +1,5 @@
 package com.example.csnea;
+//imports used:
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class Calorie implements Initializable {
+    //all fxml components used:
     @FXML
     private TextField nameoffoodtf;
     @FXML
@@ -36,34 +38,36 @@ public class Calorie implements Initializable {
     @FXML
     private TableColumn<CalorieController, Float> Proteinpercentagecolumn;
 
-    private ObservableList<CalorieController> userfoods = FXCollections.observableArrayList();
+    //create observable list to hold database values so that they can be displayed to a tableview (getters and setters in CalorieController class)
+    private final ObservableList<CalorieController> userfoods = FXCollections.observableArrayList();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AddFoodButton.setOnAction(event -> {
-           if (!nameoffoodtf.getText().trim().isEmpty() && !numberofcalstf.getText().trim().isEmpty()){
-               //if fat% or protein grams are not known they are set to 0 so the rest can still be added to db
-                if (fatpercentagetf.getText().trim().isEmpty() || proteingramstf.getText().trim().isEmpty()){
+            if (!nameoffoodtf.getText().trim().isEmpty() && !numberofcalstf.getText().trim().isEmpty()) {
+                //if fat% or protein grams are not known they are set to 0 so the rest can still be added to db
+                if (fatpercentagetf.getText().trim().isEmpty()) {
                     fatpercentagetf.setText("0");
+                }
+                if (proteingramstf.getText().trim().isEmpty()){
                     proteingramstf.setText("0");
                 }
-                addfoodtodb(event, nameoffoodtf.getText().trim(), numberofcalstf.getText().trim(), fatpercentagetf.getText().trim(),proteingramstf.getText().trim());
+                addfoodtodb(event, nameoffoodtf.getText().trim(), numberofcalstf.getText().trim(), fatpercentagetf.getText().trim(), proteingramstf.getText().trim());
 
-           }
-           //if the user hasn't filled in the name of the food and the number of calories it cannot be added
-           else {
-               System.out.println("Please fill in all required information");
-               Alert alert = new Alert(Alert.AlertType.ERROR);
-               alert.setContentText("Please fill in the name of food, and number of calories to add a food");
-               alert.show();
-           }
-
+            }
+            //if the user hasn't filled in the name of the food and the number of calories it cannot be added
+            else {
+                System.out.println("Please fill in all required information");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Please fill in the name of food, and number of calories to add a food");
+                alert.show();
+            }
 
 
         });
     }
-
-    public void addfoodtodb(ActionEvent event, String nameoffood, String numberofcals, String fatpercentage, String proteingrams){
+    //method for adding food to db
+    public void addfoodtodb(ActionEvent event, String nameoffood, String numberofcals, String fatpercentage, String proteingrams) {
         Connection connection;
         PreparedStatement psInsert;
         try {
@@ -71,64 +75,73 @@ public class Calorie implements Initializable {
             //values are added to database table via sql statement
             psInsert = connection.prepareStatement("INSERT INTO userfood (Username,nameoffood,numberofcals,fatpercent,proteinpercent) VALUES (?,?,?,?,?)");
             psInsert.setString(1, logincontroller.currentuser);
-            psInsert.setString(2,nameoffood);
+            psInsert.setString(2, nameoffood);
             psInsert.setFloat(3, Float.parseFloat(numberofcals));
             psInsert.setFloat(4, Float.parseFloat(fatpercentage));
             psInsert.setFloat(5, Float.parseFloat(proteingrams));
             psInsert.executeUpdate();
             displayitemstotable();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void displayitemstotable(){
+
+    //method for displaying users db info to a fxml tableview
+    public void displayitemstotable() {
         Connection connection;
         PreparedStatement psSelect;
         ResultSet resultSet;
+        //sets up tableview columns
         UsernameColumn.setCellValueFactory(new PropertyValueFactory<>("Username"));
         Nameoffoodcolumn.setCellValueFactory(new PropertyValueFactory<>("nameoffood"));
         Numberofcalscolumn.setCellValueFactory(new PropertyValueFactory<>("numberofcals"));
         Proteinpercentagecolumn.setCellValueFactory(new PropertyValueFactory<>("proteinpercent"));
         Fatpercentagecolumn.setCellValueFactory(new PropertyValueFactory<>("fatpercent"));
-        try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst","root","root");
-            psSelect = connection.prepareStatement("SELECT * FROM userfood");
+        try {
+            //fetches the info from the db where the current user has entered values
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
+            psSelect = connection.prepareStatement("SELECT * FROM userfood WHERE Username = ?");
+            psSelect.setString(1, logincontroller.currentuser);
             resultSet = psSelect.executeQuery();
             userfoods.clear();
-            while (resultSet.next()){
+            //loops through the database and adds values to observable list
+            while (resultSet.next()) {
                 userfoods.add(new CalorieController(resultSet.getString("Username"),
                         resultSet.getString("nameoffood"),
                         resultSet.getFloat("numberofcals"),
                         resultSet.getFloat("fatpercent"),
                         resultSet.getFloat("proteinpercent")));
+                //sets the observable list to be displayed in the tableview
                 foodtable.setItems(userfoods);
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void clearitemsfromtable(){
+
+    //method for the user removing their items from db
+    public void clearitemsfromtable() {
         userfoods.clear();
         foodtable.setItems(FXCollections.observableArrayList());
         Connection connection;
         PreparedStatement psDelete;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst","root","root");
-            psDelete = connection.prepareStatement("DELETE FROM userfood");
+            //deletes all values from the current user
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
+            psDelete = connection.prepareStatement("DELETE FROM userfood WHERE Username = ?");
+            psDelete.setString(1, logincontroller.currentuser);
             psDelete.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void returntomainmenu(ActionEvent event){
-        DatabaseConnection.changeScene(event, "HomeScreen.fxml", "changetomainmenu", true);
+    public void returntomainmenu(ActionEvent event) {
+        SwitchScenes.changeScene(event, "HomeScreen.fxml", "changetomainmenu", true);
     }
-    public void returntotargets(ActionEvent event){
-        DatabaseConnection.changeScene(event, "Targets.fxml", "changetotargets", true);
+
+    public void returntotargets(ActionEvent event) {
+        SwitchScenes.changeScene(event, "Targets.fxml", "changetotargets", true);
     }
 
 }

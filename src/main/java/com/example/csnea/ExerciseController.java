@@ -13,6 +13,8 @@ public class ExerciseController {
         this.hoursspent = hoursspent;
     }
 
+    //getter and setter methods for the values in the database so that they can be added to the observable list
+
     public String getUsername() {
         return Username;
     }

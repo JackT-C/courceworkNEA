@@ -5,19 +5,19 @@
 
 <VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.Book">
     <HBox>
-        <TextField fx:id="nameInput" promptText="Name" />
-        <TextField fx:id="exerciseTypeInput" promptText="Booking Type" />
-        <TextField fx:id="dateInput" promptText="Date (YYYY-MM-DD)" />
-        <TextField fx:id="timeInput" promptText="Time (HH:MM)" />
-        <Button fx:id="addButton" onAction="#addBooking" prefHeight="25.0" prefWidth="43.0" text="Add" />
+      <Button fx:id="deletebutton" onAction="#cleartable" prefHeight="25.0" prefWidth="149.0" text="Delete your bookings" />
+        <TextField fx:id="exerciseTypeInput" prefHeight="25.0" prefWidth="147.0" promptText="Booking Type" />
+        <TextField fx:id="dateInput" prefHeight="25.0" prefWidth="149.0" promptText="Date (YYYY-MM-DD)" />
+        <TextField fx:id="timeInput" prefHeight="25.0" prefWidth="155.0" promptText="Time (HH:MM:SS)" />
+        <Button fx:id="addBookingButton" prefHeight="25.0" prefWidth="90.0" text="Add" />
     </HBox>
-    <TableView fx:id="table">
+    <TableView fx:id="bookingtable">
         <columns>
-            <TableColumn fx:id="nameColumn" prefWidth="147.99999487400055" text="Name" />
-            <TableColumn fx:id="exerciseTypeColumn" prefWidth="147" text="BookingType" />
-            <TableColumn fx:id="dateColumn" prefWidth="148.6667022705078" text="Date" />
-            <TableColumn fx:id="timeColumn" prefWidth="187.33331298828125" text="Time" />
+            <TableColumn id="usernamecolumn" fx:id="usernameColumn" prefWidth="147.99999487400055" text="Username" />
+            <TableColumn id="bookingtypecolumn" fx:id="BookingTypeColumn" prefWidth="147" text="BookingType" />
+            <TableColumn id="datacolumn" fx:id="dateColumn" prefWidth="148.6667022705078" text="Date" />
+            <TableColumn id="timecolumn" fx:id="timeColumn" prefWidth="187.33331298828125" text="Time" />
         </columns>
     </TableView>
-   <Button fx:id="exitButton" onAction="#exitbuttononclick" prefHeight="25.0" prefWidth="639.0" text="Exit:" />
+   <Button fx:id="exitButton" onAction="#exitbuttononclick" prefHeight="25.0" prefWidth="689.0" text="Exit:" />
 </VBox>

@@ -1,4 +1,5 @@
 package com.example.csnea;
+//imports:
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,51 +8,54 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class BMI {
-
+    //all fxml components used:
     @FXML
-    private TextField textField1;
+    private TextField HeightTextField;
     @FXML
-    private TextField textField2;
+    private TextField WeightTextField;
     @FXML
-    private Label label1;
+    private Label BMI_label;
     @FXML
-    private Label label2;
+    private Label category_label;
     @FXML
-    private Label label3;
-
+    private Label error_label;
     @FXML
     Button HomeScreen;
 
+
     public void bmicalc(){
-        if (textField2.getText().trim().isEmpty() || textField1.getText().trim().isEmpty()){
-            label3.setText("please enter correct values for Height and Weight ");
+        //outputs error message to label and alert if empty values
+        if (WeightTextField.getText().trim().isEmpty() || HeightTextField.getText().trim().isEmpty()){
+            error_label.setText("please enter correct values for Height and Weight ");
         }
         else {
-            float x = Float.parseFloat(textField1.getText());
-            float y = Float.parseFloat(textField2.getText());
+            //calculates BMI
+            float x = Float.parseFloat(HeightTextField.getText());
+            float y = Float.parseFloat(WeightTextField.getText());
             float bmi = y/(x * x);
-            label1.setText(""+bmi);
-
+            BMI_label.setText(""+bmi);
+            //outputs a category
             if (bmi <= 18.5){
-                label2.setText("Underweight");
+                category_label.setText("Underweight");
             }
             else if (bmi <= 24.9){
-                label2.setText("Normal weight");
+                category_label.setText("Normal weight");
             }
             else if (bmi <= 29.9){
-                label2.setText("Overweight");
+                category_label.setText("Overweight");
             }
             else {
-                label2.setText("Obese");
+                category_label.setText("Obese");
             }
         }
     }
+    //resets all textfields
     public void reset(){
-        label1.setText("");
-        label2.setText("");
-        label3.setText("");
+        BMI_label.setText("");
+        category_label.setText("");
+        error_label.setText("");
     }
     public void switchtomainmenu(ActionEvent event){
-        DatabaseConnection.changeScene(event, "HomeScreen.fxml", "switchtomain", true);
+        SwitchScenes.changeScene(event, "HomeScreen.fxml", "switchtomain", true);
     }
 }

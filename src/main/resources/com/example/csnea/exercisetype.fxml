@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.ExerciseTypes">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutY="-18.0" prefHeight="425.0" prefWidth="236.0" style="-fx-background-color: #009c8c;">
+               <children>
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="127.0" prefHeight="17.0" prefWidth="236.0" text="Fitness" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+                  <Line endX="100.0" layoutX="118.0" layoutY="165.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Line>
+                  <Label alignment="CENTER" layoutY="174.0" prefHeight="17.0" prefWidth="236.0" text="First" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana" size="21.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="367.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="400.0" prefWidth="365.0">
+               <children>
+                  <Button fx:id="returntoexercise" layoutX="99.0" layoutY="122.0" mnemonicParsing="false" onAction="#returntoexercise" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Return:" textFill="WHITE" />
+                  <Label layoutX="64.0" layoutY="28.0" text="Please pick an exercise from the following:" />
+                  <Button fx:id="addexercise" layoutX="99.0" layoutY="311.0" mnemonicParsing="false" onAction="#useraddsitem" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Add new exercise:" textFill="WHITE" />
+                  <Label layoutX="82.0" layoutY="208.0" text="Or add your own exercise below:" />
+                  <Label fx:id="allexerciseslabel" layoutY="48.0" prefHeight="71.0" prefWidth="358.0" textFill="RED" />
+                  <TextField fx:id="addexercisetf" layoutX="77.0" layoutY="256.0" prefHeight="25.0" prefWidth="177.0" promptText="Add Exercise:" />
+                  <Button fx:id="showexercises" layoutX="299.0" layoutY="24.0" mnemonicParsing="false" onAction="#displayexercises" text="Reveal:" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

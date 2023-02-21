@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.SignUpController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csnea.SignUpController">
    <left>
       <AnchorPane prefHeight="447.0" prefWidth="228.0" style="-fx-background-color: #009c8c;" BorderPane.alignment="CENTER">
          <children>
@@ -35,9 +31,9 @@
                   <DropShadow />
                </effect>
             </Label>
-            <Label alignment="CENTER" layoutX="4.0" layoutY="297.0" prefHeight="22.0" prefWidth="228.0" text="If unknown then leave black as you can change targets later :)">
+            <Label alignment="CENTER" layoutX="4.0" layoutY="297.0" prefHeight="50.0" prefWidth="228.0" text="Targets can be empty, you can set them later!">
                <font>
-                  <Font size="8.0" />
+                  <Font size="11.0" />
                </font>
             </Label>
          </children></AnchorPane>
@@ -49,10 +45,10 @@
             <TextField fx:id="UserNameField" layoutX="176.0" layoutY="34.0" promptText="Username" />
             <TextField fx:id="WeightTextField" layoutX="176.0" layoutY="103.0" promptText="Weight" />
             <TextField fx:id="HeightTextField" layoutX="176.0" layoutY="141.0" promptText="Height" />
-            <TextField fx:id="WeeklyActiveHoursTF" layoutX="176.0" layoutY="174.0" promptText="Weekly Active Hours" />
+            <TextField fx:id="WeeklyActiveHoursTF" layoutX="176.0" layoutY="174.0" promptText="Estimated Hours Active" />
             <TextField fx:id="TargetWeightTF" layoutX="176.0" layoutY="241.0" promptText="Target Weight" />
             <TextField fx:id="TargetAHTF" layoutX="176.0" layoutY="274.0" promptText="Target Active Hours" />
-            <TextField fx:id="AvCalIntakeTF" layoutX="176.0" layoutY="206.0" promptText="Average Calorie Intake" />
+            <TextField fx:id="AvCalIntakeTF" layoutX="176.0" layoutY="206.0" promptText="Estimated Daily Intake" />
             <TextField fx:id="TargetAvCalIntakeTF" layoutX="176.0" layoutY="306.0" promptText="Target Calorie Intake" />
             <Label alignment="CENTER" layoutX="126.0" layoutY="4.0" text="Sign Up Form:">
                <font>
@@ -61,13 +57,13 @@
             </Label>
             <Label alignment="CENTER" layoutX="64.0" layoutY="38.0" text="Username:" />
             <Label alignment="CENTER" layoutX="66.0" layoutY="73.0" text="Password:" />
-            <Label alignment="CENTER" layoutX="78.0" layoutY="107.0" text="Weight:" />
-            <Label alignment="CENTER" layoutX="81.0" layoutY="145.0" text="Height:" />
-            <Label alignment="CENTER" layoutX="24.0" layoutY="178.0" text="Weeklly Active Hours:" />
-            <Label alignment="CENTER" layoutX="14.0" layoutY="210.0" text="Average Calorie Intake (Daily)" />
-            <Label alignment="CENTER" layoutX="42.0" layoutY="245.0" text="Target Weight:" />
-            <Label alignment="CENTER" layoutX="39.0" layoutY="278.0" text="Target Active Hours" />
-            <Label alignment="CENTER" layoutX="39.0" layoutY="310.0" text="Target Calorie Intake" />
+            <Label alignment="CENTER" layoutX="59.0" layoutY="107.0" text="Weight: (Kg)" />
+            <Label alignment="CENTER" layoutX="61.0" layoutY="145.0" text="Height: (M)" />
+            <Label alignment="CENTER" layoutX="24.0" layoutY="178.0" text="Weekly Active Hours: (Hs)" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="210.0" text="Average Calorie Intake (Kcal)" />
+            <Label alignment="CENTER" layoutX="42.0" layoutY="245.0" text="Target Weight: (Kg)" />
+            <Label alignment="CENTER" layoutX="39.0" layoutY="278.0" text="Target Active Hours: (Hs)" />
+            <Label alignment="CENTER" layoutX="19.0" layoutY="310.0" text="Target Calorie Intake: (Kcal)" />
             <Button fx:id="signInButton" layoutX="185.0" layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Submit:" textFill="WHITE" />
             <Button fx:id="cancelbutton" layoutX="24.0" layoutY="350.0" mnemonicParsing="false" onAction="#cancelbuttonOnAction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #009c8c;" text="Cancel:" textFill="WHITE" />
          </children>

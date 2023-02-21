@@ -7,13 +7,14 @@ public class CalorieController {
     private float fatpercentage;
     private float proteinpercentage;
 
-    public CalorieController (String Username, String nameoffood, float numberofcals, float fatpercentage, float proteinpercentage){
+    public CalorieController(String Username, String nameoffood, float numberofcals, float fatpercentage, float proteinpercentage) {
         this.Username = Username;
         this.nameoffood = nameoffood;
         this.numberofcals = numberofcals;
         this.fatpercentage = fatpercentage;
         this.proteinpercentage = proteinpercentage;
     }
+    //getter and setter methods so the values can be added to the observable list
 
     public String getUsername() {return Username;}
 

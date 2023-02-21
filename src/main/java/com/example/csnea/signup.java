@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class signup {
 
-
+    //main method for signing the user up and adding values to the database
     public static void signUpUser(ActionEvent event, String Username, String Password, String Weight, String Height, String ActiveHours, String AverageCalIntake,
                                   String targetweight, String targetactivehours, String targetavcalintake){
         Connection connection = null;
@@ -15,16 +15,20 @@ public class signup {
         ResultSet resultSet = null;
 
         try {
+            //establish a connection to the mysql database
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fitnessfirst", "root", "root");
+            //checks if there is already a user with the same username
             psCheckIfUserExists = connection.prepareStatement("SELECT * FROM useraccounts WHERE Username = ?");
             psCheckIfUserExists.setString(1, Username);
             resultSet = psCheckIfUserExists.executeQuery();
 
+            //if they exist show an alert
             if (resultSet.isBeforeFirst()){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("user already exists");
                 alert.show();
             }
+            //otherwise add values to database:
             else {
                 psInsert = connection.prepareStatement("INSERT INTO useraccounts (Username,Password,Weight,Height,ActiveHours,AverageCalIntake) VALUES (?, ?, ?, ?, ?, ?)");
                 psInsert.setString(1, Username);
@@ -46,36 +50,6 @@ public class signup {
         }
         catch (SQLException e){
             e.printStackTrace();
-        }
-        finally {
-            if(resultSet != null){
-                try {
-                    resultSet.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-            if(psCheckIfUserExists != null){
-                try {
-                    psCheckIfUserExists.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-            if(psInsert != null){
-                try {
-                    psInsert.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-            if(connection != null){
-                try {
-                    connection.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

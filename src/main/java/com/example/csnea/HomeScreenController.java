@@ -10,18 +10,23 @@ public class HomeScreenController {
     @FXML
     private Button exitbutton;
 
+    //switch to BMI scene
     public void switchtoBMI(ActionEvent event){
-        DatabaseConnection.changeScene(event, "BMI.fxml", "switchtobmi", true);
+        SwitchScenes.changeScene(event, "BMI.fxml", "switchtobmi", true);
     }
+    //switch to calorie scene
     public void switchtoCalorie(ActionEvent event){
-        DatabaseConnection.changeScene(event, "Calorie.fxml", "switchtocalorie", true);
+        SwitchScenes.changeScene(event, "Calorie.fxml", "switchtocalorie", true);
     }
+    //switch to targets scene
     public void switchtoTargets(ActionEvent event){
-        DatabaseConnection.changeScene(event, "Targets.fxml", "switchtotargets", true);
+        SwitchScenes.changeScene(event, "Targets.fxml", "switchtotargets", true);
     }
+    //switch to exercise scene
     public void switchtoExercise(ActionEvent event){
-        DatabaseConnection.changeScene(event, "Exercise.fxml", "switchtoexercise", true);
+        SwitchScenes.changeScene(event, "Exercise.fxml", "switchtoexercise", true);
     }
+    //exit the application
     public void exit(){
         Stage stage = (Stage) exitbutton.getScene().getWindow();
         stage.close();
